@@ -1,14 +1,57 @@
+/* ==========================================
+   ROOT
+   ========================================== */
+:root {
+    /* !---@Shadow_Voidh  ---   */
+    --bg-black: #0b0b0a;
+    --bg-black-soft: #12110f;
+    --red-primary: #FF0000;
+    --red-soft: #FF0020;
+    --red-dark: #DC143C;
+    --red-blood: #660000;
+
+    /* !---@Shadow_Voidh  (Texto)  --- */
+    --text-primary: #f2f0eb;
+    --text-muted: #a8a59a;
+    --text-dim: #6f6c63;
+
+    /* !---@Shadow_Voidh  (Borda)  --- */
+    --border-gold: rgba(201, 162, 39, .35);
+    --border-soft: rgba(255, 255, 255, .08);
+    --glass-bg: rgba(18, 17, 15, .65);
+    --glass-border: rgba(201, 162, 39, .25);
+    --shadow-deep: 0 40px 80px rgba(0, 0, 0, .6);
+
+    /* !---@Shadow_Voidh  (Fonte)  --- */
+    --font-heading: "Playfair Display", serif;
+    --font-body: "Inter", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+
+    /* !---@Shadow_Voidh (JOGADORES) --- */
+    --accent-shadow: #8a2be2;    
+    --accent-shadowP: #680a81; 
+    --accent-barou: #5e0808;    
+}
+
+/* ==========================================
+  (BODY) por @shadow_voidh
+   ========================================== */
+
 body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background: linear-gradient(135deg, #0f0f11 0%, #1a1a1e 50%, #0a0a0c 100%);
+    background-color: #050505;
+    background-image: 
+        repeating-linear-gradient(90deg, transparent, transparent 79px, #680a81 80px),
+        repeating-linear-gradient(0deg, transparent, transparent 79px, #680a81 80px),
+        linear-gradient(135deg, #0f0f11 0%, #1a1a1e 50%, #0a0a0c 100%);
+    background-attachment: fixed;
     position: relative;
     overflow-x: hidden;
-    
 }
 
-/* Detalhe brilhante em vermelho no fundo */
+/*  body red*/
 body::before {
     content: "";
     position: absolute;
@@ -21,9 +64,145 @@ body::before {
     pointer-events: none;
 }
 
+::selection {
+    background: #c9a22740;
+}
 
+/* ==========================================
+ TEXTOS
+   ========================================== */
+/* !@Shadow_Voidh(CSS: Fontes) */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    letter-spacing: .5px;
+}
+
+p, span, button, input {
+    font-family: var(--font-body);
+}
+
+code, pre, .mono, .status-text, .code-text {
+    font-family: var(--font-mono);
+}
+
+.contract-text {
+    font-family: var(--font-heading);
+    letter-spacing: .8px;
+}
+
+.system-text {
+    font-family: var(--font-mono);
+    letter-spacing: 1px;
+}
+
+
+/* @shadow_voidh container*/
+.contract-container h1 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    text-align: center;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin: 0;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.title-gold {
+    color: var(--gold-primary);
+    font-family: var(--font-heading);
+    letter-spacing: 2px;
+}
+
+/* Classes de Cores de Letras */
+.corletra { color: rgb(189, 177, 11); } 
+.corletrared { color: red; } 
+.corletraorange { color: orange; } 
+.corletragreen { color: green; } 
+.corletrablue { color: blue; } 
+.corletrapurple { color: purple; }    
+.corletragrey { color: grey; }
+.corletraglamur { color: #7a0f63; }
+
+/* ==========================================
+   4. BOTÕES (BUTTONS)
+   ========================================== */
+button {
+    background: transparent;
+    border: 1px solid var(--gold-primary);
+    color: var(--gold-primary);
+    padding: 14px 36px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+button:hover {
+    background: #c9a2271f;
+}
+
+button.primary {
+    background: var(--gold-primary);
+    color: #0b0b0a;
+    border: none;
+}
+
+button.primary:hover {
+    background: var(--gold-soft);
+}
+
+/* @Shadow_Voidh(CSS: Botões) - .btn-accept unificado */
+.btn-accept {
+    display: block;
+    width: fit-content;
+    margin: 40px auto 0;
+    padding: 20px 60px;
+    background: transparent;
+    color: var(--gold-primary);
+    border: 1px solid var(--gold-primary);
+    font-family: var(--font-body); 
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.4s all ease;
+    overflow: hidden; 
+}
+
+.btn-accept:hover {
+    background: var(--gold-primary);
+    color: var(--bg-black);
+    box-shadow: 0 0 30px var(--gold-glow);
+    transform: translateY(-2px); 
+}
+
+.btn-accept::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.6s;
+}
+
+.btn-accept:hover::after {
+    left: 100%;
+}
+
+/* Botões do CSS 2 (Gamer / Login) */
 .btn-gamer {
-    background-color: #da1414;
+    background-color: #772e2e;
     color: #ffffff;
     border: 2px solid #a6a6a6;
     padding: 10px 20px;
@@ -31,11 +210,728 @@ body::before {
     font-weight: bold;
     box-shadow: 0 0 15px rgba(218, 20, 20, 0.5);
     transition: 0.3s;
-    center:center
 }
 
 .btn-gamer:hover {
     background-color: #ff1e1e;
     box-shadow: 0 0 25px rgba(255, 30, 30, 0.8);
     cursor: pointer;
+}
+
+.btn-login {
+    background-color: #772e2e;
+    color: #ffffff;
+    border: 1px solid #fffbf1;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+/* ==========================================
+   5. MIDIA / GIFS JOGADORES
+   ========================================== */
+/* @Shadow_Voidh(CSS: Gifs) */
+.player-multimidia {
+    width: 400px; 
+    height: 300px;
+    object-fit: cover;
+    border: 3px solid var(--gold-primary); 
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+}
+
+.player-multimidia:hover {
+    transform: scale(1.05);
+}
+
+/* @Shadow_Voidh(Cores dos Gifs) */
+.player-aiku { border-color: var(--accent-aiku); box-shadow: 0 0 20px var(--accent-aiku); }
+.player-lorenzo { border-color: var(--accent-lorenzo); box-shadow: 0 0 20px var(--accent-lorenzo); }
+.player-barou { border-color: var(--accent-barou); box-shadow: 0 0 20px var(--accent-barou); }
+.player-snuffy { border-color: var(--accent-snuffy); box-shadow: 0 0 20px var(--accent-snuffy); }
+.player-aryu { border-color: var(--accent-aryu); box-shadow: 0 0 20px var(--accent-aryu); }
+.player-sendou { border-color: var(--accent-sendou); box-shadow: 0 0 20px var(--accent-sendou); }
+.player-niko { border-color: var(--accent-niko); box-shadow: 0 0 20px var(--accent-niko); }
+.player-fukaku { border-color: var(--accent-fukaku); box-shadow: 0 0 20px var(--accent-fukaku); }
+
+/* ==========================================
+   6. WIDGET SPOTIFY (MÚSICA)
+   ========================================== */
+/* !@Shadow_Voidh(CSS: Musica) */
+.spotify-widget {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 320px;
+    height: 80px;
+    background-color: var(--bg-black-soft); 
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    box-shadow: var(--shadow-deep);
+    z-index: 999999;
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    border-left: 4px solid var(--gold-primary); 
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+    cursor: pointer;
+}
+
+.spotify-widget:not(:hover) {
+    transform: translateX(-290px); 
+    opacity: 0.6;
+}
+
+/* Cores Dinâmicas do Spotify */
+.spotify-aiku { border-left-color: var(--accent-aiku); }
+.spotify-aiku .song-title { color: var(--accent-aiku); }
+.spotify-aiku .progress { background: var(--accent-aiku); }
+
+.spotify-lorenzo { border-left-color: var(--accent-lorenzo); }
+.spotify-lorenzo .song-title { color: var(--accent-lorenzo); }
+.spotify-lorenzo .progress { background: var(--accent-lorenzo); }
+
+.spotify-barou { border-left-color: var(--accent-barou); }
+.spotify-barou .song-title { color: var(--accent-barou); }
+.spotify-barou .progress { background: var(--accent-barou); }
+
+.spotify-aryu { border-left-color: var(--accent-aryu); }
+.spotify-aryu .song-title { color: var(--accent-aryu); }
+.spotify-aryu .progress { background: var(--accent-aryu); }
+
+.spotify-sendou { border-left-color: var(--accent-sendou); }
+.spotify-sendou .song-title { color: var(--accent-sendou); }
+.spotify-sendou .progress { background: var(--accent-sendou); }
+
+.spotify-niko { border-left-color: var(--accent-niko); }
+.spotify-niko .song-title { color: var(--accent-niko); }
+.spotify-niko .progress { background: var(--accent-niko); }
+
+.spotify-fukaku { border-left-color: var(--accent-fukaku); }
+.spotify-fukaku .song-title { color: var(--accent-fukaku); }
+.spotify-fukaku .progress { background: var(--accent-fukaku); }
+
+.sportify-ubersmusic { border-left-color: var(--accent-ubersmusic); }
+.sportify-ubersmusic .song-title { color: var(--accent-ubersmusic); }
+.sportify-ubersmusic .progress { background: var(--accent-ubersmusic); }
+
+/* Detalhes do Widget de Música */
+.album-art img {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    margin-right: 12px;
+    border: 1px solid var(--border-soft);
+}
+
+.song-info { flex-grow: 1; overflow: hidden; }
+
+.song-title {
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.song-artist {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 3px;
+    background: var(--border-soft);
+    margin-top: 8px;
+    border-radius: 2px;
+}
+
+.progress {
+    height: 100%;
+    border-radius: 2px;
+    box-shadow: 0 0 8px currentColor; 
+}
+
+/* ==========================================
+   7. ESTRUTURA E SEÇÕES DE PERFIL / STATUS
+   ========================================== */
+/* @Shadow_voidh(CSS: Status) */
+.perfil-card {
+    background: #0f0f0f;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    width: 450px;
+    padding: 20px;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.perfil-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.status-tag {
+    background: #FFD700;
+    color: #000;
+    font-size: 0.7rem;
+    padding: 2px 10px;
+    font-weight: bold;
+}
+
+.rank-circle {
+    color: #FFD700;
+    border: 1px solid #FFD700;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+.perfil-content {
+    display: flex;
+    gap: 20px;
+}
+
+.foto-perfil {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid #333;
+    filter: grayscale(30%); 
+}
+
+.nome-atleta {
+    color: #fff;
+    margin: 0;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.posicao {
+    color: #FFD700;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px;
+    border-left: 3px solid #FFD700;
+}
+
+.stat-box span {
+    display: block;
+    font-size: 0.6rem;
+    color: #888;
+}
+
+.stat-box strong {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.perfil-wrapper {
+    position: relative;
+    width: fit-content; 
+    margin: 50px auto;  
+}
+
+.btn-perfil {
+    display: block;
+    margin-bottom: 10px; 
+    background: #FFD700;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-perfil:hover {
+    box-shadow: 0 0 15px #FFD700;
+    transform: scale(1.05);
+}
+
+#conteudo-perfil {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 50px;    
+    right: 0;      
+    z-index: 999;
+}
+
+.secao-perfil {
+    position: static !important;
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.conteudo-perfil-bloco {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 9999 !important;
+    width: 90% !important;
+    max-width: 520px !important;
+    background: #0d0d0d !important;
+    border: 2px solid var(--gold-primary) !important;
+    border-radius: 4px !important;
+    box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.95) !important;
+    padding: 25px !important;
+}
+
+.conteudo-perfil-bloco:not(.hidden) {
+    display: block !important;
+    animation: modalEntrada 0.3s ease-out;
+}
+
+@keyframes modalEntrada {
+    from { opacity: 0; transform: translate(-50%, -45%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.overall-badge {
+    background: linear-gradient(135deg, #FFD700, #b8860b);
+    color: #000;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    font-family: 'Orbitron', sans-serif; 
+    border: 2px solid #000;
+}
+
+.ovr-number {
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.ovr-rank {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: -2px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    width: 100%;
+    text-align: center;
+    color: #000;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================
+   8. CAMPO DE FORMAÇÃO TÁTICA (UBERS)
+   ========================================== */
+/* ?formação */
+.campo-ubers {
+    background: radial-gradient(circle, #0f3019 0%, #081c0e 100%);
+    border: 3px solid var(--gold-primary);
+    box-shadow: 0 0 40px var(--gold-glow);
+    height: 720px;                  
+    padding: 35px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 0 !important;
+}
+
+/* Linhas do Gramado */
+.campo-ubers::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(to bottom, transparent 49.7%, rgba(201, 162, 39, 0.3) 49.7%, rgba(201, 162, 39, 0.3) 50.3%, transparent 50.3%),
+        linear-gradient(to bottom, rgba(201, 162, 39, 0.2) 15%, transparent 15%),
+        linear-gradient(to top, rgba(201, 162, 39, 0.2) 15%, transparent 15%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Círculo Central */
+.campo-ubers::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 160px;
+    height: 160px;
+    border: 2px solid rgba(201, 162, 39, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.linha {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.linha.ataque, .linha.goleiro, .linha.vol {
+    justify-content: center;
+}
+
+.linha.meio {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 0;
+}
+
+/* Assimetrias Táticas */
+.jogador-pos.abdi { transform: translateX(-40px); }
+.jogador-pos.drago { transform: translateX(-25px); }
+.jogador-pos.peron { transform: translateX(10px); }
+.jogador-pos.rico { transform: translateX(25px); }
+
+/* Mini-Cards dos Jogadores */
+.jogador-pos {
+    background: rgba(18, 17, 15, 0.85);
+    backdrop-filter: blur(4px);
+    border: 1.5px solid var(--gold-primary);
+    color: var(--text-primary);
+    padding: 12px 24px;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.jogador-pos:hover {
+    box-shadow: 0 0 25px var(--gold-primary);
+    transform: scale(1.1) translateY(-3px);
+    background: var(--gold-primary);
+    color: #0b0b0a;
+    font-weight: bold;
+}
+
+/* Container Estrutural Tático */
+.container-tatico {
+    display: grid !important;
+    grid-template-columns: minmax(300px, 800px) 280px !important;
+    justify-content: center;       
+    align-items: start;            
+    gap: 30px;                     
+    width: 100%;
+    max-width: 1160px;             
+    margin: 40px auto;             
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Card do Marc Snuffy (Treinador) */
+.card-treinador {
+    background: rgba(18, 17, 15, 0.85);
+    backdrop-filter: blur(8px);
+    border: 2px solid var(--gold-primary);
+    box-shadow: 0 0 30px var(--gold-glow);
+    width: 280px !important;       
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    box-sizing: border-box;
+    margin: 0 !important;          
+}
+
+.badge-treinador {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold-primary);
+    color: #0b0b0a;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+.foto-treinador {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 10px;
+}
+
+.card-treinador:hover .foto-treinador {
+    filter: grayscale(0%) brightness(1.1);
+    border-color: var(--gold-primary);
+}
+
+.info-treinador h2 {
+    font-family: var(--font-heading);
+    color: var(--gold-primary);
+    margin: 15px 0 5px 0;
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+.info-treinador .subtitulo {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 1.5px;
+}
+
+.frase-snuffy {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text-muted);
+    font-style: italic;
+    border-top: 1px solid var(--border-soft);
+    padding-top: 12px;
+}
+
+/* ==========================================
+   9. INTERFACES DE PROJETO E FLUXO
+   ========================================== */
+.tela-projeto {
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+    animation: fadeEntrada 0.5s ease-in-out;
+}
+
+.tela-projeto.ativa {
+    display: block; 
+}
+
+.btn-voltar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: var(--gold-primary);
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 100;
+}
+
+@keyframes fadeEntrada {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* ==========================================
+   10. CONTRATO DO CLUBE / ESTRUTURAS DE PAPEL
+   ========================================== */
+.card-container-restrito {
+    max-height: 85vh;
+    max-width: 780px;
+    width: 100%;
+    position: relative;
+    padding: 40px;
+    background: var(--bg-black-soft);
+    border: 2px solid var(--border-soft);
+    border-radius: 2px;
+    box-shadow: var(--shadow-deep);
+    overflow: visible !important; 
+}
+
+.contract-container {
+    background: #0a0a0a !important; 
+    border: 2px solid #222222;       
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8); 
+    padding: 40px;
+    max-width: 780px;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Linhas de Grade Estéticas */
+.contract-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(var(--border-soft) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--border-soft) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.corner {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--gold-primary);
+    opacity: 0.4;
+}
+
+.top-left { top: 20px; left: 20px; border-right: 0; border-bottom: 0; }
+.top-right { top: 20px; right: 20px; border-left: 0; border-bottom: 0; }
+.bottom-left { bottom: 20px; left: 20px; border-right: 0; border-top: 0; }
+.bottom-right { bottom: 20px; right: 20px; border-left: 0; border-top: 0; }
+
+.header-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--border-soft);
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--gold-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--gold-primary);
+    margin-left: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--gold-primary);
+    font-family: var(--font-heading);
+    letter-spacing: 4px;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* Cláusulas do Contrato */
+.clause {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 40px;
+}
+
+.clause::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    background: var(--gold-primary);
+    border-radius: 50%;
+}
+
+.clause-title {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    display: block;
+    color: #ffd700 !important;
+}
+
+.clause-title span {
+    color: var(--gold-primary);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    margin-right: 15px;
+}
+
+.clause-body {
+    line-height: 1.8;
+    font-weight: 300;
+    border-left: 1px solid var(--border-soft);
+    padding-left: 20px;
+    color: #cccccc !important;
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+    opacity: 0.3;
+    margin: 40px 0;
+}
+
+.verification-seal {
+    text-align: center;
+    margin: 60px 0;
+    border: 1px solid var(--gold-primary);
+    padding: 30px;
+    background: rgba(201, 162, 39, 0.02);
+    position: relative;
+}
+
+.seal-text {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--gold-primary);
+    letter-spacing: 4px;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
 }
