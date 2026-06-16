@@ -93,3 +93,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (formCadastro) formCadastro.addEventListener('submit', realizarCadastro);
     if (formLogin) formLogin.addEventListener('submit', realizarLogin);
 });
+
+body: JSON.stringify({ 
+    nome: nome,   
+    email: email, 
+    senha: senha  
+})
+
+// DENTRO DA FUNÇÃO DE LOGIN:
+body: JSON.stringify({ 
+    email: email, 
+    senha: senha  
+})
