@@ -1,3 +1,18 @@
+function mudarTela(idDaTela) {
+    const telas = document.querySelectorAll('.tela-card');
+    telas.forEach(tela => {
+        tela.classList.add('hidden');
+    });
+    const telaAtiva = document.getElementById(idDaTela);
+    if (telaAtiva) {
+        telaAtiva.classList.remove('hidden');
+    }
+}
+
+
+
+const API_URL = "https://upgraded-computing-machine-r7p59x497r5cwqvw-5000.app.github.dev";
+
 // ==========================================
 // LÓGICA DE CADASTRO
 // ==========================================
