@@ -1,28 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
+!DOCTYPE html>
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="assets/styles.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=JetBrains+Mono&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
-    <title>Guerreiro Play</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=JetBrains+Mono&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Guerreiros Play</title>
   </head>
   <body>
-    
 
-    <img src="assets/img/logo.png" width="200" height="200" style="text-align: center; font-size: 10px; color: var(--text-dim); font-family: var(--font-mono); margin-top: 20px; letter-spacing: 1px;">
-    
-    <center>
-    <div class="perfil-card">
-    <h1 class="corletrared">Tela de Login</h1>
-    <br>
-    <h1 class=""
 
+
+<div class="figma-layout-container">
+
+  <section class="tela-card" id="tela-login">
+    <div class="logo-wrapper">
+      <img src="assets/img/logo.png" alt="Guerreiros Play" class="logo-game">
     </div>
-    </center>
+    <h1 class="titulo-tela">LOGIN</h1>
+    <form class="form-interface">
+      <div class="input-group">
+        <span class="input-icon">✉</span>
+        <input type="email" placeholder="Exemplo@gmail.com" required>
+      </div>
+      <div class="input-group">
+        <span class="input-icon">🔒</span>
+        <input type="password" placeholder="Senha" required>
+      </div>
+      <a href="#" class="link-esqueceu system-text">Esqueci a senha</a>
+      <button href="#"  type="submit" class="btn-gamer btn-login-submit" onclick="mudarTela('tela-loja')">LOGIN</button>
+    
+    <div class="card-footer">
+      <p class="system-text">Não possui conta? <a href="#" class="link-alternativo" onclick="mudarTela('tela-cadastro')">Cadastre-se</a></p>
+    </div>
+    </form>
+  </section>
 
+  <section class="tela-card hidden" id="tela-cadastro">
+    <div class="logo-wrapper">
+      <img src="assets/img/logo.png" alt="Guerreiros Play" class="logo-game">
+    </div>
+    <h1 class="titulo-tela">Cadastro</h1>
+    <form class="form-interface">
+      <div class="input-group">
+        <span class="input-icon">👤</span>
+        <input type="text" placeholder="Nome de Usuário" required>
+      </div>
+      <div class="input-group">
+        <span class="input-icon">✉</span>
+        <input type="email" placeholder="Email" required>
+      </div>
+      <div class="input-group">
+        <span class="input-icon">🔒</span>
+        <input type="password" placeholder="Senha" required>
+      </div>
+      <button type="submit" class="btn-gamer btn-cadastro-submit" onclick="event.preventDefault(); mudarTela('tela-loja')">CADASTRAR</button>
+    <div class="card-footer">
+      <p class="system-text">Possui conta? <a href="#" class="link-alternativo" onclick="mudarTela('tela-login')">Login</a></p>
+    </div>
+    </form>
+  </section>
 
-   <script src="dashboard/main.js"></script>
-   <script-py src="dashboard/main.py"></script-py>
+  <section class="tela-card loja-card hidden" id="tela-loja">
+    <header class="loja-header">
+      <img src="assets/img/logo.png" alt="Mini Logo" class="mini-logo">
+      <h1 class="titulo-loja">LOJA</h1>
+    </header>
+    <div class="loja-produtos">
+      <div class="produto-item">
+        <span class="produto-tag system-text">Guerreiros Play: Ultimate Fight</span>
+        <img src="assets/img/UltimateFight.png" height="233" width="330">
+        <button class="btn-login btn-acessar">Acessar</button>
+      </div>
+      <div class="produto-item">
+        <span class="produto-tag system-text">Guerreiros Play: Eclipse das Almas</span>
+        <img src="assets/img/Eclipse.png" height="233" width="330">
+        <button class="btn-login btn-acessar">Acessar</button>
+      </div>
+    </div>
+    <div class="card-footer">
+      <a href="#" class="link-alternativo" onclick="mudarTela('tela-login')">Sair / Voltar</a>
+    </div>
+  </section>
+
+</div>
+
+    <script src="dashboard/main.js"></script>
+    <script-py src="dashboard/main.py"></script-py>
   </body>
 </html>
+
