@@ -1,28 +1,13 @@
-function mudarTela(idDaTela) {
-    const telas = document.querySelectorAll('.tela-card');
-    telas.forEach(tela => {
-        tela.classList.add('hidden');
-    });
-    const telaAtiva = document.getElementById(idDaTela);
-    if (telaAtiva) {
-        telaAtiva.classList.remove('hidden');
-    }
-}
-
-
-
-const API_URL = "https://upgraded-computing-machine-r7p59x497r5cwqvw-5000.app.github.dev";
-
 // ==========================================
 // LÓGICA DE CADASTRO
 // ==========================================
 async function realizarCadastro(event) {
-    event.preventDefault(); // Impede a página de recarregar
+    event.preventDefault(); 
 
-   
-    const nome = document.querySelector('input[placeholder="Nome de Usuário"]').value;
-    const email = document.querySelector('input[placeholder="Email"]').value;
-    const senha = document.querySelector('input[placeholder="Senha"]').value;
+    // Agora busca especificamente dentro da seção de cadastro
+    const nome = document.querySelector('#tela-cadastro input[placeholder="Nome de Usuário"]').value;
+    const email = document.querySelector('#tela-cadastro input[placeholder="Email"]').value;
+    const senha = document.querySelector('#tela-cadastro input[placeholder="Senha"]').value;
 
     if (!nome || !email || !senha) {
         alert("Por favor, preencha todos os campos.");
@@ -40,7 +25,7 @@ async function realizarCadastro(event) {
 
         if (resposta.ok) {
             alert("Conta criada com sucesso! Mude para a tela de Login.");
-            event.target.reset();
+            mudarTela('tela-login');
         } else {
             alert("Erro no cadastro: " + resultado.erro);
         }
@@ -56,8 +41,9 @@ async function realizarCadastro(event) {
 async function realizarLogin(event) {
     event.preventDefault();
 
-    const email = document.querySelector('input[placeholder="Exemplo@gmail.com"]').value;
-    const senha = document.querySelector('input[placeholder="Senha"]').value;
+    // Agora busca especificamente dentro da seção de login
+    const email = document.querySelector('#tela-login input[placeholder="Exemplo@gmail.com"]').value;
+    const senha = document.querySelector('#tela-login input[placeholder="Senha"]').value;
 
     try {
         const resposta = await fetch(`${API_URL}/api/login`, {
@@ -70,10 +56,7 @@ async function realizarLogin(event) {
 
         if (resposta.ok) {
             alert(`Bem-vindo, ${resultado.usuario}! Login aprovado.`);
-            document.getElementById('tela-login').classList.add('hidden');
-            document.getElementById('tela-cadastro').classList.add('hidden');
-            document.getElementById('tela-loja').classList.remove('hidden');
-            
+            mudarTela('tela-loja'); 
         } else {
             alert("Erro no login: " + resultado.erro);
         }
@@ -82,26 +65,3 @@ async function realizarLogin(event) {
         alert("Não foi possível conectar ao servidor backend.");
     }
 }
-
-// ==========================================
-// ATIVAR OS FORMULÁRIOS
-// ==========================================
-document.addEventListener("DOMContentLoaded", () => {
-    const formCadastro = document.querySelector('#tela-cadastro form');
-    const formLogin = document.querySelector('#tela-login form');
-
-    if (formCadastro) formCadastro.addEventListener('submit', realizarCadastro);
-    if (formLogin) formLogin.addEventListener('submit', realizarLogin);
-});
-
-body: JSON.stringify({ 
-    nome: nome,   
-    email: email, 
-    senha: senha  
-})
-
-// DENTRO DA FUNÇÃO DE LOGIN:
-body: JSON.stringify({ 
-    email: email, 
-    senha: senha  
-})
