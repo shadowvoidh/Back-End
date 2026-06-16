@@ -19,12 +19,12 @@ const API_URL = "https://upgraded-computing-machine-r7p59x497r5cwqvw-5000.app.gi
 async function realizarCadastro(event) {
     event.preventDefault(); 
 
-    // Agora busca especificamente dentro da seção de cadastro
-    const nome = document.querySelector('#tela-cadastro input[placeholder="Nome de Usuário"]').value;
-    const email = document.querySelector('#tela-cadastro input[placeholder="Email"]').value;
-    const senha = document.querySelector('#tela-cadastro input[placeholder="Senha"]').value;
+    // Captura os valores dos campos usando a nova busca específica
+    const nome_valor = document.querySelector('#tela-cadastro input[placeholder="Nome de Usuário"]').value;
+    const email_valor = document.querySelector('#tela-cadastro input[placeholder="Email"]').value;
+    const senha_valor = document.querySelector('#tela-cadastro input[placeholder="Senha"]').value;
 
-    if (!nome || !email || !senha) {
+    if (!nome_valor || !email_valor || !senha_valor) {
         alert("Por favor, preencha todos os campos.");
         return;
     }
@@ -33,7 +33,11 @@ async function realizarCadastro(event) {
         const resposta = await fetch(`${API_URL}/api/cadastro`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ nome, email, senha })
+            body: JSON.stringify({ 
+                nome: nome_valor,   // Envia exatamente como o Python espera
+                email: email_valor, 
+                senha: senha_valor 
+            })
         });
 
         const resultado = await resposta.json();
@@ -56,15 +60,18 @@ async function realizarCadastro(event) {
 async function realizarLogin(event) {
     event.preventDefault();
 
-    // Agora busca especificamente dentro da seção de login
-    const email = document.querySelector('#tela-login input[placeholder="Exemplo@gmail.com"]').value;
-    const senha = document.querySelector('#tela-login input[placeholder="Senha"]').value;
+    // Captura os valores específicos da tela de login
+    const email_valor = document.querySelector('#tela-login input[placeholder="Exemplo@gmail.com"]').value;
+    const senha_valor = document.querySelector('#tela-login input[placeholder="Senha"]').value;
 
     try {
         const resposta = await fetch(`${API_URL}/api/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, senha })
+            body: JSON.stringify({ 
+                email: email_valor, // Envia exatamente como o Python espera
+                senha: senha_valor 
+            })
         });
 
         const resultado = await resposta.json();
