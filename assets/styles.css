@@ -1,5 +1,5 @@
 /* ==========================================
-   ROOT
+   (ROOT) por @shadow_voidh
    ========================================== */
 :root {
     /* !---@Shadow_Voidh  ---    */
@@ -27,7 +27,7 @@
     --font-body: "Inter", sans-serif;
     --font-mono: "JetBrains Mono", monospace;
 
-    /* !---@Shadow_Voidh (JOGADORES) --- */
+    /* !---@Shadow_Voidh (shadow) --- */
     --accent-shadow: #8a2be2;    
     --accent-shadowP: #680a81; 
     --accent-barou: #5e0808;    
@@ -237,7 +237,7 @@ button.primary:hover {
 }
 
 /* ==========================================
-   INTERFACES COMPARTILHADAS (ESTRUTURA BASE MOBILE)
+   ESTRUTURA BASE MOBILE
    ========================================== */
 .tela-projeto {
     display: none;
@@ -278,19 +278,19 @@ button.primary:hover {
     box-sizing: border-box;
 }
 
-/* O CARD BASE (Estilo Celular Em Pé) */
+
 .tela-card {
     background-color: #2b2b2b;
     border: 2px solid var(--border-soft);
     width: 100%;
-    max-width: 340px;      /* Largura ideal para celular */
+    max-width: 340px;      
     min-height: 600px;
     padding: 30px 20px;
     border-radius: 12px;
     box-shadow: var(--shadow-deep);
     display: flex;
     flex-direction: column;
-    align-items: center;   /* Centraliza tudo verticalmente no celular */
+    align-items: center;   
     box-sizing: border-box;
 }
 
@@ -298,7 +298,7 @@ button.primary:hover {
     display: none !important;
 }
 
-/* Esconde o banner do PC por padrão no Celular */
+
 .pc-banner-side {
     display: none;
 }
@@ -310,7 +310,7 @@ button.primary:hover {
     align-items: center;
 }
 
-/* LOGO BASE (Controlada para o celular) */
+
 .logo-wrapper {
     width: 100%;
     display: flex;
@@ -319,7 +319,7 @@ button.primary:hover {
 }
 
 .logo-game {
-    width: 120px;          /* Impede que a logo fique gigante no celular */
+    width: 120px;         
     height: auto;
     object-fit: contain;
 }
@@ -347,8 +347,8 @@ button.primary:hover {
     width: 100%;
     display: flex;
     align-items: center;
-    background-color: #444444; /* Cor cinza interna dos campos */
-    border-radius: 25px;       /* Mantém os inputs redondos */
+    background-color: #444444; 
+    border-radius: 25px;       
     padding: 10px 18px;
     box-sizing: border-box;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -389,12 +389,12 @@ button.primary:hover {
 .btn-login-submit, .btn-cadastro-submit {
     margin-top: 15px;
     width: 100%;
-    border-radius: 25px; /* Botão oval como nas fotos */
+    border-radius: 25px;
     padding: 12px;
 }
 
 .card-footer {
-    margin-top: auto;       /* Empurra para o final do card */
+    margin-top: auto;      
     padding-top: 25px;
     width: 100%;
     text-align: center;
@@ -407,7 +407,7 @@ button.primary:hover {
 }
 
 .link-alternativo {
-    color: #4ba3e3;         /* Link azul destacado */
+    color: #4ba3e3;         
     text-decoration: none;
 }
 
@@ -416,7 +416,7 @@ button.primary:hover {
 }
 
 /* ==========================================
-   INTERFACES DA LOJA (MOBILE)
+   LOJA MOBILE
    ========================================== */
 .loja-card {
     max-width: 350px;
@@ -458,7 +458,7 @@ button.primary:hover {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Botão alinhado à direita */
+    align-items: flex-end; 
     gap: 8px;
 }
 
@@ -473,7 +473,7 @@ button.primary:hover {
     text-align: left;
 }
 
-/* Limita e blinda os banners dos jogos para caberem no celular */
+
 .img-container {
     width: 100%;
     max-width: 330px;
@@ -495,7 +495,7 @@ button.primary:hover {
 
 
 /* ==========================================
-   ESTRELA DO DESIGN: MEDIA QUERY EXCLUSIVA PARA PC
+   DESIGN  PC
    ========================================== */
 @media (min-width: 1024px) {
     
@@ -507,21 +507,21 @@ button.primary:hover {
         align-items: center;
     }
 
-    /* Transforma os cards em retângulos horizontais compridos de PC */
+    
     #tela-login, #tela-cadastro {
         flex-direction: row !important; 
-        max-width: 960px;              /* Largura do retângulo esticado */
+        max-width: 960px;              
         width: 90%;
         min-height: 520px;             
-        padding: 0 !important;         /* Zera o padding para o banner colar na borda */
+        padding: 0 !important;         
         overflow: hidden;
-        align-items: stretch;          /* Alinha a altura da imagem com a dos inputs */
+        align-items: stretch;         
     }
 
-    /* Ativa e modela o Banner esquerdo horizontal no PC */
+    
     .pc-banner-side {
         display: block !important;
-        width: 50% !important;         /* Metade esquerda */
+        width: 50% !important;         
         position: relative;
         background-color: #1a1a1a;
     }
@@ -529,17 +529,17 @@ button.primary:hover {
     .pc-banner-side img {
         width: 100%;
         height: 100%;
-        object-fit: cover;             /* Preenche a área do retângulo perfeitamente */
+        object-fit: cover;            
         display: block;
     }
 
-    /* Modela o lado direito dos formulários no PC */
+    
     .interface-side {
-        width: 50% !important;         /* Metade direita */
+        width: 50% !important;        
         padding: 45px 50px;
         display: flex;
         flex-direction: column;
-        justify-content: center;       /* Centraliza o formulário verticalmente no retângulo */
+        justify-content: center;       
         align-items: stretch;
         box-sizing: border-box;
     }
@@ -551,7 +551,7 @@ button.primary:hover {
     }
 
     .logo-game {
-        width: 100px;                  /* Logo sutil no layout de PC */
+        width: 100px;                  
     }
 
     .titulo-tela {
@@ -566,7 +566,7 @@ button.primary:hover {
     }
 
     .input-group {
-        padding: 12px 20px;            /* Inputs um pouco mais robustos no desktop */
+        padding: 12px 20px;            
     }
 
     .btn-gamer {
@@ -578,7 +578,7 @@ button.primary:hover {
         padding-top: 15px;
     }
 
-    /* AJUSTE COMPLETO DA LOJA: Cards de jogos lado a lado no PC */
+
     .loja-card {
         max-width: 860px !important;
         padding: 40px;
@@ -589,13 +589,13 @@ button.primary:hover {
     }
 
     .loja-produtos {
-        flex-direction: row !important; /* Coloca os dois jogos na horizontal */
+        flex-direction: row !important; 
         gap: 25px;
         width: 100%;
         justify-content: center;
     }
 
     .produto-item {
-        width: 48%;                     /* Divide as colunas igualmente */
+        width: 48%;                     
     }
 }

@@ -8,7 +8,7 @@
     <title>Guerreiros Play</title>
   </head>
   <body>
-
+<!-- @Shadow_Voidh -->
 <div class="figma-layout-container">
 
   <section class="tela-card" id="tela-login">
@@ -21,7 +21,7 @@
         <img src="assets/img/logo.png" alt="Guerreiros Play" class="logo-game">
       </div>
       <h1 class="titulo-tela">LOGIN</h1>
-      <form class="form-interface" onsubmit="event.preventDefault(); mudarTela('tela-loja')">
+      <form class="form-interface" onsubmit="realizarLogin(event)">
         <div class="input-group">
           <span class="input-icon">✉</span>
           <input type="email" placeholder="Exemplo@gmail.com" required>
@@ -49,7 +49,7 @@
         <img src="assets/img/logo.png" alt="Guerreiros Play" class="logo-game">
       </div>
       <h1 class="titulo-tela">Cadastro</h1>
-      <form class="form-interface" onsubmit="event.preventDefault(); mudarTela('tela-loja')">
+      <form class="form-interface" onsubmit="realizarCadastro(event)">
         <div class="input-group">
           <span class="input-icon">👤</span>
           <input type="text" placeholder="Nome de Usuário" required>
@@ -98,8 +98,5 @@
 
 </div>
 
-    
     <script src="dashboard/main.js"></script>
-    <script-py src="dashboard/main.py"></script-py>
-  </body>
-</html>
+    <script-py src="dashboard/
