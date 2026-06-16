@@ -2,7 +2,7 @@
    ROOT
    ========================================== */
 :root {
-    /* !---@Shadow_Voidh  ---   */
+    /* !---@Shadow_Voidh  ---    */
     --bg-black: #0b0b0a;
     --bg-black-soft: #12110f;
     --red-primary: #FF0000;
@@ -34,9 +34,8 @@
 }
 
 /* ==========================================
-  (BODY) por @shadow_voidh
+   (BODY) por @shadow_voidh
    ========================================== */
-
 body {
     margin: 0;
     padding: 0;
@@ -51,7 +50,6 @@ body {
     overflow-x: hidden;
 }
 
-/*  body red*/
 body::before {
     content: "";
     position: absolute;
@@ -69,9 +67,8 @@ body::before {
 }
 
 /* ==========================================
- TEXTOS
+   TEXTOS
    ========================================== */
-/* !@Shadow_Voidh(CSS: Fontes) */
 h1, h2, h3 {
     font-family: var(--font-heading);
     letter-spacing: .5px;
@@ -95,8 +92,6 @@ code, pre, .mono, .status-text, .code-text {
     letter-spacing: 1px;
 }
 
-
-/* @shadow_voidh container*/
 .contract-container h1 {
     font-family: var(--font-heading);
     font-size: 2.5rem;
@@ -122,7 +117,6 @@ p {
     letter-spacing: 2px;
 }
 
-/* Classes de Cores de Letras */
 .corletra { color: rgb(189, 177, 11); } 
 .corletrared { color: red; } 
 .corletraorange { color: orange; } 
@@ -133,7 +127,7 @@ p {
 .corletraglamur { color: #7a0f63; }
 
 /* ==========================================
-   4. BOTÕES (BUTTONS)
+   BOTÕES (BUTTONS)
    ========================================== */
 button {
     background: transparent;
@@ -160,7 +154,6 @@ button.primary:hover {
     background: var(--gold-soft);
 }
 
-/* @Shadow_Voidh(CSS: Botões) -  */
 .btn-accept {
     display: block;
     width: fit-content;
@@ -200,7 +193,6 @@ button.primary:hover {
     left: 100%;
 }
 
-/*  CSS  (Gamer / Login) */
 .btn-gamer {
     background-color: #772e2e;
     color: #ffffff;
@@ -229,8 +221,6 @@ button.primary:hover {
     transition: 0.3s;
 }
 
-
-
 .conteudo-perfil-bloco {
     position: absolute !important;
     top: 50% !important;
@@ -246,11 +236,8 @@ button.primary:hover {
     padding: 25px !important;
 }
 
-
-
-
 /* ==========================================
-   INTERFACES 
+   INTERFACES COMPARTILHADAS (ESTRUTURA BASE MOBILE)
    ========================================== */
 .tela-projeto {
     display: none;
@@ -282,12 +269,6 @@ button.primary:hover {
     to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeInRight {
-    from { opacity: 0; transform: translateX(30px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-
 .figma-layout-container {
     display: flex;
     justify-content: center;
@@ -297,21 +278,27 @@ button.primary:hover {
     box-sizing: border-box;
 }
 
+/* O CARD BASE (Estilo Celular Em Pé) */
 .tela-card {
     background-color: #2b2b2b;
     border: 2px solid var(--border-soft);
     width: 100%;
-    max-width: 360px; /* Em pé no celular */
-    min-height: 620px;
-    padding: 30px 25px;
-    border-radius: 8px;
+    max-width: 340px;      /* Largura ideal para celular */
+    min-height: 600px;
+    padding: 30px 20px;
+    border-radius: 12px;
     box-shadow: var(--shadow-deep);
     display: flex;
     flex-direction: column;
+    align-items: center;   /* Centraliza tudo verticalmente no celular */
     box-sizing: border-box;
 }
 
-/* Esconde o banner do PC quando estiver visualizando no celular */
+.tela-card.hidden {
+    display: none !important;
+}
+
+/* Esconde o banner do PC por padrão no Celular */
 .pc-banner-side {
     display: none;
 }
@@ -323,162 +310,32 @@ button.primary:hover {
     align-items: center;
 }
 
-.tela-card.hidden {
-    display: none !important;
-}
-
-/* Container de segurança para as fotos da loja não estourarem */
-.img-container {
-    width: 100%;
-    max-width: 330px;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.img-produto {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-
-/* --- Estilo Avançado: PC (Retângulo Wireframe Expandido) --- */
-@media (min-width: 1024px) {
-    
-    .figma-layout-container {
-        padding: 40px;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    /* Modifica o card para o formato do retângulo horizontal do Figma */
-    #tela-login, #tela-cadastro {
-        flex-direction: row !important; /* Força os blocos a ficarem lado a lado */
-        max-width: 1000px;              /* Define a largura do retângulo do PC */
-        width: 90%;
-        min-height: 500px;              /* Altura proporcional ao wireframe */
-        padding: 0;
-        overflow: hidden;
-        align-items: stretch;           /* Faz os dois lados terem a mesma altura */
-    }
-
-    /* Controla o lado do banner deitado */
-    .pc-banner-side {
-        display: block !important;
-        width: 50%;                    /* Metade esquerda para o banner */
-        position: relative;
-        background-color: #1a1a1a;
-    }
-
-    .pc-banner-side img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;             /* Preenche o retângulo sem distorcer */
-        display: block;
-    }
-
-    /* Controla o lado do formulário */
-    .interface-side {
-        width: 50%;                    /* Metade direita para os inputs */
-        padding: 50px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;       /* Centraliza o formulário verticalmente no retângulo */
-        align-items: stretch;          /* Alinha os inputs de ponta a ponta */
-        box-sizing: border-box;
-    }
-
-    /* Organiza a logo e o título lado a lado ou em bloco no PC */
-    .interface-side .logo-wrapper {
-        margin-bottom: 20px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .titulo-tela {
-        font-size: 2.4rem;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    /* Garante que o formulário ocupe o espaço correto */
-    .form-interface {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .input-group {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .btn-gamer {
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    .card-footer {
-        margin-top: 25px;
-        text-align: center;
-    }
-
-    /* Ajuste da Loja para alinhar os dois jogos em linha como no Figma de PC */
-    .loja-card {
-        max-width: 900px !important;
-        padding: 40px;
-    }
-
-    .loja-header {
-        margin-bottom: 35px;
-    }
-
-    .loja-produtos {
-        flex-direction: row !important; /* Jogos lado a lado */
-        gap: 30px;
-        width: 100%;
-        justify-content: center;
-    }
-
-    .produto-item {
-        width: 45%; /* Divide o espaço entre as duas opções */
-    }
-/* Força o elemento escondido a sumir de verdade em qualquer resolução */
-.tela-card.hidden {
-    display: none !important;
-}
-
-
-/* Logos */
+/* LOGO BASE (Controlada para o celular) */
 .logo-wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .logo-game {
-    width: 110px;
-    height: 110px;
+    width: 120px;          /* Impede que a logo fique gigante no celular */
+    height: auto;
     object-fit: contain;
 }
 
-/* Títulos estilizados (LOGIN / CADASTRO) */
 .titulo-tela {
     font-family: var(--font-heading);
     color: var(--text-primary);
-    font-size: 2.2rem;
+    font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin: 10px 0 30px 0;
+    margin: 10px 0 25px 0;
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-/* Estrutura dos Formulários */
+/* Formulários e Inputs Arredondados */
 .form-interface {
     width: 100%;
     display: flex;
@@ -486,21 +343,20 @@ button.primary:hover {
     gap: 15px;
 }
 
-/* Customização dos Inputs arredondados com ícone interno */
 .input-group {
     width: 100%;
     display: flex;
     align-items: center;
-    background-color: #555555; /* Cor cinza interna dos campos */
-    border-radius: 25px;
-    padding: 8px 15px;
+    background-color: #444444; /* Cor cinza interna dos campos */
+    border-radius: 25px;       /* Mantém os inputs redondos */
+    padding: 10px 18px;
     box-sizing: border-box;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .input-icon {
     color: #a8a59a;
-    margin-right: 10px;
+    margin-right: 12px;
     font-size: 14px;
 }
 
@@ -517,7 +373,6 @@ button.primary:hover {
     color: #a8a59a;
 }
 
-/* Links auxiliares */
 .link-esqueceu {
     color: var(--text-muted);
     font-size: 11px;
@@ -531,19 +386,16 @@ button.primary:hover {
     color: var(--red-soft);
 }
 
-
 .btn-login-submit, .btn-cadastro-submit {
-    margin-top: 20px;
+    margin-top: 15px;
     width: 100%;
-    border-radius: 25px; /* Arredondado conforme imagem */
+    border-radius: 25px; /* Botão oval como nas fotos */
     padding: 12px;
 }
 
-
 .card-footer {
-    margin-top: auto;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: auto;       /* Empurra para o final do card */
+    padding-top: 25px;
     width: 100%;
     text-align: center;
 }
@@ -555,7 +407,7 @@ button.primary:hover {
 }
 
 .link-alternativo {
-    color: #4ba3e3; /* Azul destacado nos rodapés do seu Figma */
+    color: #4ba3e3;         /* Link azul destacado */
     text-decoration: none;
 }
 
@@ -563,8 +415,11 @@ button.primary:hover {
     text-decoration: underline;
 }
 
-
+/* ==========================================
+   INTERFACES DA LOJA (MOBILE)
+   ========================================== */
 .loja-card {
+    max-width: 350px;
     justify-content: flex-start;
 }
 
@@ -603,7 +458,7 @@ button.primary:hover {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Botão alinhar à direita */
+    align-items: flex-end; /* Botão alinhado à direita */
     gap: 8px;
 }
 
@@ -611,27 +466,25 @@ button.primary:hover {
     font-size: 11px;
     color: var(--text-primary);
     background-color: rgba(255, 255, 255, 0.1);
-    padding: 4px 10px;
+    padding: 5px 12px;
     border-radius: 12px;
     width: 100%;
     box-sizing: border-box;
     text-align: left;
 }
 
-.banner-preview {
+/* Limita e blinda os banners dos jogos para caberem no celular */
+.img-container {
     width: 100%;
-    height: 140px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
+    max-width: 330px;
+    border-radius: 6px;
     overflow: hidden;
 }
 
-.placeholder-jogo {
+.img-produto {
     width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-color: #111; /* Fallback caso não ache a imagem */
+    height: auto;
+    display: block;
 }
 
 .btn-acessar {
@@ -640,4 +493,109 @@ button.primary:hover {
     border-radius: 15px;
 }
 
+
+/* ==========================================
+   ESTRELA DO DESIGN: MEDIA QUERY EXCLUSIVA PARA PC
+   ========================================== */
+@media (min-width: 1024px) {
+    
+    .figma-layout-container {
+        padding: 40px;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Transforma os cards em retângulos horizontais compridos de PC */
+    #tela-login, #tela-cadastro {
+        flex-direction: row !important; 
+        max-width: 960px;              /* Largura do retângulo esticado */
+        width: 90%;
+        min-height: 520px;             
+        padding: 0 !important;         /* Zera o padding para o banner colar na borda */
+        overflow: hidden;
+        align-items: stretch;          /* Alinha a altura da imagem com a dos inputs */
+    }
+
+    /* Ativa e modela o Banner esquerdo horizontal no PC */
+    .pc-banner-side {
+        display: block !important;
+        width: 50% !important;         /* Metade esquerda */
+        position: relative;
+        background-color: #1a1a1a;
+    }
+
+    .pc-banner-side img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;             /* Preenche a área do retângulo perfeitamente */
+        display: block;
+    }
+
+    /* Modela o lado direito dos formulários no PC */
+    .interface-side {
+        width: 50% !important;         /* Metade direita */
+        padding: 45px 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;       /* Centraliza o formulário verticalmente no retângulo */
+        align-items: stretch;
+        box-sizing: border-box;
+    }
+
+    .interface-side .logo-wrapper {
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo-game {
+        width: 100px;                  /* Logo sutil no layout de PC */
+    }
+
+    .titulo-tela {
+        font-size: 2.2rem;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .form-interface {
+        width: 100%;
+        gap: 15px;
+    }
+
+    .input-group {
+        padding: 12px 20px;            /* Inputs um pouco mais robustos no desktop */
+    }
+
+    .btn-gamer {
+        margin-top: 5px;
+    }
+
+    .card-footer {
+        margin-top: 20px;
+        padding-top: 15px;
+    }
+
+    /* AJUSTE COMPLETO DA LOJA: Cards de jogos lado a lado no PC */
+    .loja-card {
+        max-width: 860px !important;
+        padding: 40px;
+    }
+
+    .loja-header {
+        margin-bottom: 35px;
+    }
+
+    .loja-produtos {
+        flex-direction: row !important; /* Coloca os dois jogos na horizontal */
+        gap: 25px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .produto-item {
+        width: 48%;                     /* Divide as colunas igualmente */
+    }
 }
