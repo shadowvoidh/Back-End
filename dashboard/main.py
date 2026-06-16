@@ -9,7 +9,6 @@ CORS(app)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(BASE_DIR, "guerreiros_play.db")
 
-DATABASE = 'guerreiros_play.db'
 
 def conectar_banco():
     # Usa o caminho absoluto para o banco funcionar em qualquer servidor
