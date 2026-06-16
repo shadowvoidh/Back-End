@@ -9,79 +9,96 @@
   </head>
   <body>
 
-    <div class="figma-layout-container">
+<div class="figma-layout-container">
 
-      <section class="tela-card" id="tela-login">
-        <div class="logo-wrapper">
-          <img src="assets/img/logo.png" alt="Guerreiros Play" class="logo-game">
-        </div>
-        <h1 class="titulo-tela">LOGIN</h1>
-        <form class="form-interface" onsubmit="event.preventDefault(); mudarTela('tela-loja')">
-          <div class="input-group">
-            <span class="input-icon">✉</span>
-            <input type="email" placeholder="Exemplo@gmail.com" required>
-          </div>
-          <div class="input-group">
-            <span class="input-icon">🔒</span>
-            <input type="password" placeholder="Senha" required>
-          </div>
-          <a href="#" class="link-esqueceu system-text">Esqueci a senha</a>
-          <button type="submit" class="btn-gamer btn-login-submit">LOGIN</button>
-        </form>
-        <div class="card-footer">
-          <p class="system-text">Não possui conta? <a href="#" class="link-alternativo" onclick="event.preventDefault(); mudarTela('tela-cadastro')">Cadastre-se</a></p>
-        </div>
-      </section>
-
-      <section class="tela-card hidden" id="tela-cadastro">
-        <div class="logo-wrapper">
-          <img src="assets/img/logo.png" alt="Guerreiros Play" class="logo-game">
-        </div>
-        <h1 class="titulo-tela">Cadastro</h1>
-        <form class="form-interface" onsubmit="event.preventDefault(); mudarTela('tela-loja')">
-          <div class="input-group">
-            <span class="input-icon">👤</span>
-            <input type="text" placeholder="Nome de Usuário" required>
-          </div>
-          <div class="input-group">
-            <span class="input-icon">✉</span>
-            <input type="email" placeholder="Email" required>
-          </div>
-          <div class="input-group">
-            <span class="input-icon">🔒</span>
-            <input type="password" placeholder="Senha" required>
-          </div>
-          <button type="submit" class="btn-gamer btn-cadastro-submit">CADASTRAR</button>
-        </form>
-        <div class="card-footer">
-          <p class="system-text">Possui conta? <a href="#" class="link-alternativo" onclick="event.preventDefault(); mudarTela('tela-login')">Login</a></p>
-        </div>
-      </section>
-
-      <section class="tela-card loja-card hidden" id="tela-loja">
-        <header class="loja-header">
-          <img src="assets/img/logo.png" alt="Mini Logo" class="mini-logo">
-          <h1 class="titulo-loja">LOJA</h1>
-        </header>
-        <div class="loja-produtos">
-          <div class="produto-item">
-            <span class="produto-tag system-text">Guerreiros Play: Ultimate Fight</span>
-            <img src="assets/img/UltimateFight.png" class="img-produto">
-            <button class="btn-login btn-acessar">Acessar</button>
-          </div>
-          <div class="produto-item">
-            <span class="produto-tag system-text">Guerreiros Play: Eclipse das Almas</span>
-            <img src="assets/img/Eclipse.png" class="img-produto">
-            <button class="btn-login btn-acessar">Acessar</button>
-          </div>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="link-alternativo" onclick="event.preventDefault(); mudarTela('tela-login')">Sair / Voltar</a>
-        </div>
-      </section>
-
+  <section class="tela-card" id="tela-login">
+    <div class="pc-banner-side">
+      <img src="assets/img/Eclipse.png" alt="Banner Guerreiros">
     </div>
 
+    <div class="interface-side">
+      <div class="logo-wrapper">
+        <img src="assets/img/logo.png" alt="Guerreiros Play" class="logo-game">
+      </div>
+      <h1 class="titulo-tela">LOGIN</h1>
+      <form class="form-interface" onsubmit="event.preventDefault(); mudarTela('tela-loja')">
+        <div class="input-group">
+          <span class="input-icon">✉</span>
+          <input type="email" placeholder="Exemplo@gmail.com" required>
+        </div>
+        <div class="input-group">
+          <span class="input-icon">🔒</span>
+          <input type="password" placeholder="Senha" required>
+        </div>
+        <a href="#" class="link-esqueceu system-text">Esqueci a senha</a>
+        <button type="submit" class="btn-gamer btn-login-submit">LOGIN</button>
+      </form>
+      <div class="card-footer">
+        <p class="system-text">Não possui conta? <a href="#" class="link-alternativo" onclick="event.preventDefault(); mudarTela('tela-cadastro')">Cadastre-se</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tela-card hidden" id="tela-cadastro">
+    <div class="pc-banner-side">
+      <img src="assets/img/UltimateFight.png" alt="Banner Guerreiros">
+    </div>
+
+    <div class="interface-side">
+      <div class="logo-wrapper">
+        <img src="assets/img/logo.png" alt="Guerreiros Play" class="logo-game">
+      </div>
+      <h1 class="titulo-tela">Cadastro</h1>
+      <form class="form-interface" onsubmit="event.preventDefault(); mudarTela('tela-loja')">
+        <div class="input-group">
+          <span class="input-icon">👤</span>
+          <input type="text" placeholder="Nome de Usuário" required>
+        </div>
+        <div class="input-group">
+          <span class="input-icon">✉</span>
+          <input type="email" placeholder="Email" required>
+        </div>
+        <div class="input-group">
+          <span class="input-icon">🔒</span>
+          <input type="password" placeholder="Senha" required>
+        </div>
+        <button type="submit" class="btn-gamer btn-cadastro-submit">CADASTRAR</button>
+      </form>
+      <div class="card-footer">
+        <p class="system-text">Possui conta? <a href="#" class="link-alternativo" onclick="event.preventDefault(); mudarTela('tela-login')">Login</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tela-card loja-card hidden" id="tela-loja">
+    <header class="loja-header">
+      <img src="assets/img/logo.png" alt="Mini Logo" class="mini-logo">
+      <h1 class="titulo-loja">LOJA</h1>
+    </header>
+    <div class="loja-produtos">
+      <div class="produto-item">
+        <span class="produto-tag system-text">Guerreiros Play: Ultimate Fight</span>
+        <div class="img-container">
+          <img src="assets/img/UltimateFight.png" class="img-produto">
+        </div>
+        <button class="btn-login btn-acessar">Acessar</button>
+      </div>
+      <div class="produto-item">
+        <span class="produto-tag system-text">Guerreiros Play: Eclipse das Almas</span>
+        <div class="img-container">
+          <img src="assets/img/Eclipse.png" class="img-produto">
+        </div>
+        <button class="btn-login btn-acessar">Acessar</button>
+      </div>
+    </div>
+    <div class="card-footer">
+      <a href="#" class="link-alternativo" onclick="event.preventDefault(); mudarTela('tela-login')">Sair / Voltar</a>
+    </div>
+  </section>
+
+</div>
+
+    
     <script src="dashboard/main.js"></script>
     <script-py src="dashboard/main.py"></script-py>
   </body>
