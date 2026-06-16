@@ -291,20 +291,21 @@ button.primary:hover {
 
 .figma-layout-container {
     display: flex;
-    flex-direction: column;   
+    justify-content: center;
     align-items: center;
-    gap: 20px;
+    min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
     width: 100%;
 }
 
+/* O card se adapta ao tamanho da tela */
 .tela-card {
     background-color: #2b2b2b;
     border: 2px solid var(--border-soft);
-    width: 100%;              
-    max-width: 360px;        
-    min-height: 640px;
+    width: 100%;
+    max-width: 360px; /* Largura padrão para celular */
+    min-height: 620px;
     padding: 30px 25px;
     border-radius: 8px;
     box-shadow: var(--shadow-deep);
@@ -315,7 +316,16 @@ button.primary:hover {
     position: relative;
 }
 
+.img-produto {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
 
+/* Força o elemento escondido a sumir de verdade em qualquer resolução */
+.tela-card.hidden {
+    display: none !important;
+}
 
 
 /* Logos */
@@ -397,7 +407,7 @@ button.primary:hover {
     color: var(--red-soft);
 }
 
-/* Botões Customizados baseados nas suas classes */
+
 .btn-login-submit, .btn-cadastro-submit {
     margin-top: 20px;
     width: 100%;
@@ -405,7 +415,7 @@ button.primary:hover {
     padding: 12px;
 }
 
-/* Rodapé dos cards */
+
 .card-footer {
     margin-top: auto;
     padding-top: 20px;
@@ -429,7 +439,7 @@ button.primary:hover {
     text-decoration: underline;
 }
 
-/* ESTRUTURA ESPECÍFICA DA LOJA */
+
 .loja-card {
     justify-content: flex-start;
 }
@@ -507,15 +517,27 @@ button.primary:hover {
 }
 
 @media (min-width: 1024px) {
-    .figma-layout-container {
-        flex-direction: row;       
-        justify-content: center;   
-        align-items: flex-start;
-        gap: 40px;                 
-        padding: 60px 40px;
+    .tela-card {
+        max-width: 460px; /* Aumenta a largura do card no PC */
+        min-height: 720px; /* Aumenta a altura no PC */
+        padding: 45px 40px; /* Dá mais respiro interno */
     }
 
-    .tela-card {
-        width: 360px;             
+    .titulo-tela {
+        font-size: 2.8rem; /* Título maior no PC */
+        margin-bottom: 40px;
+    }
+
+    .input-group {
+        padding: 12px 20px; /* Inputs mais robustos e fáceis de clicar */
+    }
+
+    .input-group input {
+        font-size: 16px;
+    }
+
+    .btn-gamer {
+        padding: 14px 24px;
+        font-size: 16px;
     }
 }
