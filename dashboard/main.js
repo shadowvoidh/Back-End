@@ -11,7 +11,7 @@ function mudarTela(idDaTela) {
 
 
 
-const API_URL = "https://upgraded-computing-machine-r7p59x497r5cwqvw-5000.app.github.dev";
+const API_URL = "https://back-end-2-soyr.onrender.com";
 
 // ==========================================
 // LÓGICA DE CADASTRO
