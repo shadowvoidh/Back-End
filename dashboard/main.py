@@ -1,28 +1,26 @@
+import os
+import sqlite3
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import sqlite3
-import hashlib
 
 app = Flask(__name__)
-CORS(app) 
+CORS(app)  # Permite que o GitHub Pages converse com o Render
 
+# Descobre o caminho correto do banco de dados em qualquer servidor
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(BASE_DIR, "guerreiros_play.db")
 
-
 def conectar_banco():
-    # Usa o caminho absoluto para o banco funcionar em qualquer servidor
     conexao = sqlite3.connect(DB_PATH)
     return conexao
 
-
 def inicializar_banco():
-    conexao = sqlite3.connect(DATABASE)
+    conexao = conectar_banco()
     cursor = conexao.cursor()
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS usuarios (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nome_usuario TEXT NOT NULL UNIQUE,
+            nome TEXT NOT NULL,
             email TEXT NOT NULL UNIQUE,
             senha TEXT NOT NULL
         )
@@ -30,68 +28,22 @@ def inicializar_banco():
     conexao.commit()
     conexao.close()
 
-def hash_senha(senha):
-    
-    return hashlib.sha256(senha.encode()).hexdigest()
-
-# --- ROTA DE CADASTRO ---
+# Garanta que a sua rota de cadastro esteja exatamente assim:
 @app.route('/api/cadastro', methods=['POST'])
 def rota_cadastro():
-    dados = request.get_json()
-    nome = dados.get('nome')
-    email = dados.get('email')
-    senha = dados.get('senha')
-    
-    if not nome or not email or not senha:
-        return jsonify({"erro": "Todos os campos são obrigatórios!"}), 400
-        
-    senha_cripto = hash_senha(senha)
-    
-    conexao = sqlite3.connect(DATABASE)
-    cursor = conexao.cursor()
-    try:
-        cursor.execute('''
-            INSERT INTO usuarios (nome_usuario, email, senha) 
-            VALUES (?, ?, ?)
-        ''', (nome, email, senha_cripto))
-        conexao.commit()
-        return jsonify({"mensagem": "Cadastro realizado com sucesso!"}), 201
-    except sqlite3.IntegrityError:
-        return jsonify({"erro": "Nome de usuário ou Email já cadastrado!"}), 400
-    finally:
-        conexao.close()
+    # Sua lógica de cadastro aqui...
+    pass
 
-# --- ROTA DE LOGIN ---
+# Garanta que a sua rota de login esteja exatamente assim:
 @app.route('/api/login', methods=['POST'])
 def rota_login():
-    dados = request.get_json()
-    email = dados.get('email')
-    senha = dados.get('senha')
-    
-    if not email or not senha:
-        return jsonify({"erro": "Preencha todos os campos!"}), 400
-        
-    senha_cripto = hash_senha(senha)
-    
-    conexao = sqlite3.connect(DATABASE)
-    cursor = conexao.cursor()
-    cursor.execute('''
-        SELECT nome_usuario FROM usuarios WHERE email = ? AND senha = ?
-    ''', (email, senha_cripto))
-    
-    usuario = cursor.fetchone()
-    conexao.close()
-    
-    if usuario:
-        return jsonify({
-            "mensagem": "Login aprovado!",
-            "usuario": usuario[0]
-        }), 200
-    else:
-        return jsonify({"erro": "Email ou senha incorretos!"}), 401
+    # Sua lógica de login aqui...
+    pass
 
 if __name__ == '__main__':
     inicializar_banco()
-    import os
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+    # O Codespaces roda na porta 5000 interna
+    app.run(host='0.0.0.0', port=5000, debug=True)
+else:
+    # Quando roda via Gunicorn no Render, cria o banco antes de subir as rotas
+    inicializar_banco()
