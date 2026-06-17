@@ -11,7 +11,7 @@ function mudarTela(idDaTela) {
 
 
 
-const API_URL = "https://back-end-2-soyr.onrender.com";
+const API_URL = "https://back-end-3-ll1x.onrender.com";
 
 // ==========================================
 // LÓGICA DE CADASTRO
@@ -58,18 +58,38 @@ async function realizarCadastro(event) {
 // LÓGICA DE LOGIN
 // ==========================================
 async function realizarLogin(event) {
-    event.preventDefault();
+    // Impede a página de recarregar e sumir com os dados
+    event.preventDefault(); 
+    
+    console.log("Botão de login clicado! Iniciando captura de dados...");
 
-    // Captura os valores específicos da tela de login
-    const email_valor = document.querySelector('#tela-login input[placeholder="Exemplo@gmail.com"]').value;
-    const senha_valor = document.querySelector('#tela-login input[placeholder="Senha"]').value;
+    // Captura os valores buscando estritamente na seção de login
+    const email_input = document.querySelector('#tela-login input[placeholder="Exemplo@gmail.com"]');
+    const senha_input = document.querySelector('#tela-login input[placeholder="Senha"]');
+
+    // Validação de segurança caso o seletor falhe no HTML
+    if (!email_input || !senha_input) {
+        console.error("Erro: Não foi possível encontrar os campos de texto no HTML. Verifique os placeholders.");
+        alert("Erro interno nos campos da tela. Verifique o console do navegador.");
+        return;
+    }
+
+    const email_valor = email_input.value.trim();
+    const senha_valor = senha_input.value;
+
+    if (!email_valor || !senha_valor) {
+        alert("Por favor, preencha o e-mail e a senha.");
+        return;
+    }
+
+    console.log(`Enviando requisição de login para: ${API_URL}/api/login`);
 
     try {
         const resposta = await fetch(`${API_URL}/api/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
-                email: email_valor, // Envia exatamente como o Python espera
+                email: email_valor, 
                 senha: senha_valor 
             })
         });
@@ -77,13 +97,15 @@ async function realizarLogin(event) {
         const resultado = await resposta.json();
 
         if (resposta.ok) {
+            console.log("Login autorizado pelo servidor Render!");
             alert(`Bem-vindo, ${resultado.usuario}! Login aprovado.`);
             mudarTela('tela-loja'); 
         } else {
+            console.warn("Servidor recusou o login:", resultado.erro);
             alert("Erro no login: " + resultado.erro);
         }
     } catch (erro) {
-        console.error("Erro ao conectar com o servidor Python:", erro);
+        console.error("Erro crítico na conexão de rede:", erro);
         alert("Não foi possível conectar ao servidor backend.");
     }
 }

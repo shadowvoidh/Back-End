@@ -31,7 +31,7 @@
           <input type="password" placeholder="Senha" required>
         </div>
         <a href="#" class="link-esqueceu system-text">Esqueci a senha</a>
-        <button type="submit" class="btn-gamer btn-login-submit">LOGIN</button>
+        <button class="btn-login" type="submit" onclick="realizarLogin(event)">LOGIN</button>
       </form>
       <div class="card-footer">
         <p class="system-text">Não possui conta? <a href="#" class="link-alternativo" onclick="event.preventDefault(); mudarTela('tela-cadastro')">Cadastre-se</a></p>
@@ -62,7 +62,7 @@
           <span class="input-icon">🔒</span>
           <input type="password" placeholder="Senha" required>
         </div>
-        <button type="submit" class="btn-gamer btn-cadastro-submit">CADASTRAR</button>
+        <button class="btn-login" type="submit" onclick="realizarCadastro(event)">CADASTRO</button>
       </form>
       <div class="card-footer">
         <p class="system-text">Possui conta? <a href="#" class="link-alternativo" onclick="event.preventDefault(); mudarTela('tela-login')">Login</a></p>
