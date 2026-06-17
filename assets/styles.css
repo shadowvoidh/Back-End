@@ -2,7 +2,7 @@
    (ROOT) por @shadow_voidh
    ========================================== */
 :root {
-    /* !---@Shadow_Voidh  ---    */
+    /* !---@Shadow_Voidh   ---    */
     --bg-black: #0b0b0a;
     --bg-black-soft: #12110f;
     --red-primary: #FF0000;
@@ -278,7 +278,6 @@ button.primary:hover {
     box-sizing: border-box;
 }
 
-
 .tela-card {
     background-color: #2b2b2b;
     border: 2px solid var(--border-soft);
@@ -298,7 +297,6 @@ button.primary:hover {
     display: none !important;
 }
 
-
 .pc-banner-side {
     display: none;
 }
@@ -309,7 +307,6 @@ button.primary:hover {
     flex-direction: column;
     align-items: center;
 }
-
 
 .logo-wrapper {
     width: 100%;
@@ -335,7 +332,7 @@ button.primary:hover {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-/* Formulários e Inputs Arredondados */
+/* Formulários e Inputs */
 .form-interface {
     width: 100%;
     display: flex;
@@ -473,7 +470,6 @@ button.primary:hover {
     text-align: left;
 }
 
-
 .img-container {
     width: 100%;
     max-width: 330px;
@@ -493,9 +489,67 @@ button.primary:hover {
     border-radius: 15px;
 }
 
+/* Base mobile para os detalhes */
+.conteudo-jogo-detalhes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.titulo-jogo-detalhe {
+    font-family: var(--font-heading);
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.descricao-container {
+    overflow-y: auto;
+    max-height: 280px; 
+    margin-bottom: 20px;
+    padding-right: 5px;
+}
+
+.texto-descricao {
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    text-align: justify;
+    width: 100%;
+}
+
+.figma-vermelho { color: #ff4a4a; }
+.figma-azul { color: #4a90e2; }
+.figma-cinza { color: #b0b0b0; }
+.figma-laranja { color: #ff8c42; }
+
+.botoes-detalhe-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.btn-ver-mais {
+    width: 140px !important;
+    background-color: #333338 !important;
+    color: #fff !important;
+    border: 1px solid #444 !important;
+    padding: 8px 15px !important;
+    font-size: 12px;
+}
+
+.card-footer-detalhes {
+    text-align: center;
+    width: 100%;
+}
 
 /* ==========================================
-   DESIGN  PC
+   DESIGN COMPATÍVEL PC (MEDIA QUERY)
    ========================================== */
 @media (min-width: 1024px) {
     
@@ -507,8 +561,8 @@ button.primary:hover {
         align-items: center;
     }
 
-    
-    #tela-login, #tela-cadastro {
+    /* FORÇA AS TELAS DE DETALHE TAMBÉM FICAREM EM LINHA (ROW) */
+    #tela-login, #tela-cadastro, #tela-ultimate, #tela-eclipse {
         flex-direction: row !important; 
         max-width: 960px;              
         width: 90%;
@@ -517,7 +571,6 @@ button.primary:hover {
         overflow: hidden;
         align-items: stretch;         
     }
-
     
     .pc-banner-side {
         display: block !important;
@@ -532,26 +585,49 @@ button.primary:hover {
         object-fit: cover;            
         display: block;
     }
-
     
-    .interface-side {
-        width: 50% !important;        
-        padding: 45px 50px;
+    .interface-side, .conteudo-jogo-detalhes {
+        width: 50% !important;         
+        padding: 45px 50px !important;
         display: flex;
         flex-direction: column;
         justify-content: center;       
         align-items: stretch;
         box-sizing: border-box;
+        background-color: #2b2b2b;
     }
 
-    .interface-side .logo-wrapper {
-        margin-bottom: 15px;
-        display: flex;
-        justify-content: center;
+    /* Ajustes internos do bloco de texto em modo PC */
+    .conteudo-jogo-detalhes {
+        background-color: #18181c !important; /* Visual escuro premium pras infos */
+    }
+
+    .titulo-jogo-detalhe {
+        font-size: 24px;
+        text-align: left;
+        margin-top: 0;
+    }
+
+    .descricao-container {
+        max-height: 320px;
+        padding-right: 15px;
+    }
+
+    .texto-descricao {
+        font-size: 14px;
+    }
+
+    .botoes-detalhe-container {
+        margin-top: auto;
+        justify-content: flex-start;
+    }
+
+    .card-footer-detalhes {
+        text-align: left;
     }
 
     .logo-game {
-        width: 100px;                  
+        width: 100px;                                  
     }
 
     .titulo-tela {
@@ -578,10 +654,10 @@ button.primary:hover {
         padding-top: 15px;
     }
 
-
     .loja-card {
         max-width: 860px !important;
         padding: 40px;
+        flex-direction: column !important; /* Mantém a estrutura vertical na loja */
     }
 
     .loja-header {
@@ -598,4 +674,16 @@ button.primary:hover {
     .produto-item {
         width: 48%;                     
     }
+}
+
+/* Customização fina da barra de rolagem global */
+.descricao-container::-webkit-scrollbar {
+    width: 6px;
+}
+.descricao-container::-webkit-scrollbar-track {
+    background: #1e1e24;
+}
+.descricao-container::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 3px;
 }

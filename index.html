@@ -9,6 +9,7 @@
   </head>
   <body>
 <!-- @Shadow_Voidh -->
+
 <div class="figma-layout-container">
 
   <section class="tela-card" id="tela-login">
@@ -31,7 +32,7 @@
           <input type="password" placeholder="Senha" required>
         </div>
         <a href="#" class="link-esqueceu system-text">Esqueci a senha</a>
-        <button class="btn-login" type="submit" onclick="realizarLogin(event)">LOGIN</button>
+        <button class="btn-login" type="submit">LOGIN</button>
       </form>
       <div class="card-footer">
         <p class="system-text">Não possui conta? <a href="#" class="link-alternativo" onclick="event.preventDefault(); mudarTela('tela-cadastro')">Cadastre-se</a></p>
@@ -62,7 +63,7 @@
           <span class="input-icon">🔒</span>
           <input type="password" placeholder="Senha" required>
         </div>
-        <button class="btn-login" type="submit" onclick="realizarCadastro(event)">CADASTRO</button>
+        <button class="btn-login" type="submit">CADASTRO</button>
       </form>
       <div class="card-footer">
         <p class="system-text">Possui conta? <a href="#" class="link-alternativo" onclick="event.preventDefault(); mudarTela('tela-login')">Login</a></p>
@@ -81,18 +82,68 @@
         <div class="img-container">
           <img src="assets/img/UltimateFight.png" class="img-produto">
         </div>
-        <button class="btn-login btn-acessar">Acessar</button>
+        <button class="btn-login btn-acessar" onclick="mudarTela('tela-ultimate')">Acessar</button>
       </div>
       <div class="produto-item">
         <span class="produto-tag system-text">Guerreiros Play: Eclipse das Almas</span>
         <div class="img-container">
           <img src="assets/img/Eclipse.png" class="img-produto">
         </div>
-        <button class="btn-login btn-acessar">Acessar</button>
+        <button class="btn-login btn-acessar" onclick="mudarTela('tela-eclipse')">Acessar</button>
       </div>
     </div>
     <div class="card-footer">
       <a href="#" class="link-alternativo" onclick="event.preventDefault(); mudarTela('tela-login')">Sair / Voltar</a>
+    </div>
+  </section>
+
+  <section class="tela-card hidden" id="tela-ultimate">
+    <div class="pc-banner-side">
+      <img src="assets/img/UltimateFight.png" alt="Ultimate Fight Banner">
+    </div>
+    <div class="conteudo-jogo-detalhes">
+      <h2 class="titulo-jogo-detalhe">Guerreiros Play: Ultimate Fight</h2>
+      <div class="descricao-container">
+        <p class="texto-descricao figma-vermelho">
+          Guerreiros Play: Ultimate Fight é um jogo de luta competitivo onde os maiores guerreiros de diferentes eras, reinos e dimensões se enfrentam para provar quem é o verdadeiro campeão da Arena Suprema.
+        </p>
+        <p class="texto-descricao figma-azul">
+          Domine estilos de combate únicos, execute combos devastadores e desperte habilidades especiais capazes de virar uma luta nos momentos mais críticos. Cada personagem possui uma história própria, golpes exclusivos e um poderoso golpe final conhecido como Ultimate Impact.
+        </p>
+      </div>
+      <div class="botoes-detalhe-container">
+        <button class="btn-login btn-ver-mais">Ver mais</button>
+      </div>
+      <div class="card-footer-detalhes">
+        <a href="#" class="link-alternativo" onclick="event.preventDefault(); mudarTela('tela-loja')">Voltar para Loja</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tela-card hidden" id="tela-eclipse">
+    <div class="pc-banner-side">
+      <img src="assets/img/Eclipse.png" alt="Eclipse das Almas Banner">
+    </div>
+    <div class="conteudo-jogo-detalhes">
+      <h2 class="titulo-jogo-detalhe">Guerreiros Play: Eclipse das Almas</h2>
+      <div class="descricao-container">
+        <p class="texto-descricao figma-cinza">
+          GUERREIROS PLAY: ECLIPSE DAS ALMAS<br><br>
+          Quando o Eclipse Carmesim cobriu os céus, o equilíbrio do mundo foi destruído. Reis enlouqueceram, heróis foram corrompidos e criaturas ancestrais despertaram das profundezas da escuridão. O reino de Valdrath caiu, deixando para trás apenas ruínas, cinzas e almas condenadas.
+        </p>
+        <p class="texto-descricao figma-laranja">
+          Você é um dos últimos Guerreiros da Chama, um combatente marcado pelo eclipse e destinado a enfrentar os Senhores das Almas, seres poderosos que governam as terras devastadas. Para restaurar a luz ao mundo, será necessário atravessar castelos esquecidos, cemitérios amaldiçoados, cidades destruídas e fortalezas dominadas pela corrupção.
+        </p>
+        <p class="texto-descricao figma-laranja">
+          Cada vitória o tornará mais forte, mas cada derrota o aproximará da loucura. Em um mundo onde a morte é apenas mais um obstáculo, somente os verdadeiros guerreiros conseguirão sobreviver aos horrores do Eclipse.
+        </p>
+      </div>
+      <div class="botoes-detalhe-container">
+        <button class="btn-login btn-ver-mais">Ver mais</button>
+      </div>
+      <div class="card-footer-detalhes">
+        <a href="#" class="link-alternativo" onclick="event.preventDefault(); mudarTela('tela-loja')">Voltar para Loja</a>
+      </div>
     </div>
   </section>
 
